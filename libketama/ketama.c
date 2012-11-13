@@ -276,7 +276,9 @@ read_server_definitions( char* filename, unsigned int* count, unsigned long* mem
     {
         char sline[128] = "";
 
-        fgets( sline, 127, fi );
+        if (fgets( sline, 127, fi ) == NULL)
+            continue;
+
         lineno++;
 
         if ( strlen( sline ) < 2 || sline[0] == '#' )

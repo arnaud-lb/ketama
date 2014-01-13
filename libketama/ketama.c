@@ -575,8 +575,8 @@ ketama_roll( ketama_continuum* contptr, char* filename )
         }
 
         (*contptr)->numpoints = *data;
-        (*contptr)->modtime = ++data;
-        (*contptr)->array = data + sizeof( void* );
+        (*contptr)->modtime = data + 1;
+        (*contptr)->array = data + 1 + sizeof( void* );
         fmodtime = (time_t*)( (*contptr)->modtime );
 
         track_shm_data(data);
